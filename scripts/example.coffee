@@ -108,7 +108,7 @@ module.exports = (robot) ->
   #   robot.brain.set 'totalSodas', 0
   #   res.reply 'zzzzz'
 
-  robot.hear /echo/i, (res) ->
+  robot.hear "echo", (res) ->
     setTimeout() ->
-    robot.send "echooo....",
-    5 * 1000
+    robot.send "echooo...."
+    , 1500

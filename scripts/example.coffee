@@ -15,13 +15,13 @@ module.exports = (robot) ->
 
   robot.hear /jamse/i, (res) ->
     res.send "My name is James!"
-  #
-  # robot.respond /open the (.*) doors/i, (res) ->
-  #   doorType = res.match[1]
-  #   if doorType is "pod bay"
-  #     res.reply "I'm afraid I can't let you do that."
-  #   else
-  #     res.reply "Opening #{doorType} doors"
+  
+  robot.respond /open the (.*) doors/i, (res) ->
+    doorType = res.match[1]
+    if doorType is "pod bay"
+      res.reply "I'm afraid I can't let you do that."
+    else
+      res.reply "Opening #{doorType} doors"
   #
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
@@ -93,7 +93,7 @@ module.exports = (robot) ->
   #     res.reply "DOES NOT COMPUTE"
   #
   # robot.respond /have a soda/i, (res) ->
-  #   # Get number of sodas had (coerced to a number).
+  #    # Get number of sodas had (coerced to a number).
   #   sodasHad = robot.brain.get('totalSodas') * 1 or 0
   #
   #   if sodasHad > 4
@@ -107,3 +107,8 @@ module.exports = (robot) ->
   # robot.respond /sleep it off/i, (res) ->
   #   robot.brain.set 'totalSodas', 0
   #   res.reply 'zzzzz'
+
+  robot.hear /echo/i, (res) ->
+    setTimeout() ->
+    robot.send "echooo....",
+    5 * 1000

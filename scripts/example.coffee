@@ -111,6 +111,12 @@ module.exports = (robot) ->
   robot.hear /echo/i, (res) ->
     res.send "echooo...."
 
+  robot.respond /remember (.*)/i, (res) ->
+    robot.brain.add 'memory', res.match[1]
+    res.send "I WILL NEVER FORGET!!"
+
+  robot.respond /remind me/i, (res) ->
+    res.send robot.brain.get('memory')
 
   robot.hear /add (.*)/i, (res) ->
     caluc = robot.brain.get('caluc') * 1 or 0

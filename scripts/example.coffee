@@ -117,7 +117,7 @@ module.exports = (robot) ->
   robot.hear /add (.*)/i, (res) ->
     caluc = robot.brain.get('caluc') * 1 or 0
     add = res.match[1]
-    added = caluc + add
+    added = (caluc + add) * 1
     robot.brain.set 'caluc', added
     res.send "sum " + added
 

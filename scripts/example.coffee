@@ -114,10 +114,13 @@ module.exports = (robot) ->
     , 1500
 
 
-  robot.hear /add/i, (res) ->
-    robot.brain.set 'test', 'a'
-    res.send "added.."
+  robot.hear /add (.*)/i, (res) ->
+    caluc = robot.brain.get('caluc') * 1 or 0
+    add = res.match[1]
+    added = caluc + add
+    robot.brain.set 'caluc', added
+    res.send "sum " + added
 
-  robot.hear /pop/i, (res) ->
-    pop = robot.brain.get('test')
+  robot.hear /sum/i, (res) ->
+    pop = robot.brain.get('caluc')
     res.send pop

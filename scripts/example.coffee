@@ -109,9 +109,7 @@ module.exports = (robot) ->
   #   res.reply 'zzzzz'
 
   robot.hear /echo/i, (res) ->
-    setTimeout() ->
     res.send "echooo...."
-    , 1500
 
 
   robot.hear /add (.*)/i, (res) ->

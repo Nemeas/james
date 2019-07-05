@@ -23,7 +23,7 @@ module.exports = (robot) ->
     else
       res.reply "Opening #{doorType} doors"
 
-  robot.hear /api/, (res) ->
+  robot.hear /api/i, (res) ->
     res.send("test");
   #
   # robot.hear /I like pie/i, (res) ->
